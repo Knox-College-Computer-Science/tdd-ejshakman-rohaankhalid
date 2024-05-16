@@ -21,9 +21,11 @@ class testAdd(unittest.TestCase):
 
     #Error handling
     def test_add_error(self):
-        with self.assertRaises(AssertionError):
+        with self.assertRaises(AssertionError) as context:
             result = calc.add(9, 1)
             self.assertEqual(result, 6)
+        if context.exception:
+            print("Assertion error caught:", context.exception)
 
 
 class testSubtract(unittest.TestCase):
@@ -56,9 +58,12 @@ class testSubtract(unittest.TestCase):
 
     #Error handling
     def test_sub_error(self):
-        with self.assertRaises(AssertionError):
+        with self.assertRaises(AssertionError) as context:
             result = calc.subtract(9, 1)
             self.assertEqual(result, 6)
+
+        if context.exception:
+            print("Assertion error caught:", context.exception)
 
 
 if __name__ == '__main__':
