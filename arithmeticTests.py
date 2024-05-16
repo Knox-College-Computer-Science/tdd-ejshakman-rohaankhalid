@@ -19,6 +19,9 @@ class testAdd(unittest.TestCase):
         self.assertEqual(calc.add(2, 0), 2)             #pos + 0
         self.assertEqual(calc.add(-2, 0), -2)           #neg + 0
 
+    def test_add_error(self):
+        self.assertEqual(calc.add(2, 0), -2)           #neg + 0
+
 
 class testSubtract(unittest.TestCase):
     def test_sub_pos(self):
@@ -47,6 +50,9 @@ class testSubtract(unittest.TestCase):
         self.assertEqual(calc.subtract(0, 5), -5)       #0 - pos
         self.assertEqual(calc.subtract(-2, 0), -2)      #neg - 0
         self.assertEqual(calc.subtract(0, -4), 4)       #0 - neg
+
+    def test_sub_error(self):
+        self.assertEqual(calc.subtract(5, 2), -3)        #large - small
 
 if __name__ == '__main__':
     unittest.main()
