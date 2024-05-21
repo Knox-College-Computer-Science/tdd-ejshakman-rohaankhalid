@@ -65,6 +65,10 @@ class testSubtract(unittest.TestCase):
         if context.exception:
             print("Assertion error caught:", context.exception)
 
+class testMultiply(unittest.TestCase):
+    def test_mult(self):
+        self.assertEqual(calc.multiply(-2, 3), -6)     #neg * pos
+        self.assertEqual(calc.multiply(3, 0), 0)       #int * 0
 
 if __name__ == '__main__':
     unittest.main()
