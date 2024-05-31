@@ -70,5 +70,16 @@ class testMultiply(unittest.TestCase):
         self.assertEqual(calc.multiply(-2, 3), -6)     #neg * pos
         self.assertEqual(calc.multiply(3, 0), 0)       #int * 0
 
+class testDivide(unittest.TestCase):
+    def test_divide(self):
+        self.assertEqual(calc.divide(3, 1), 3)
+        self.assertEqual(calc.divide(6, -2), -3)
+    # Ensure division by 0 raises an error
+    def test_sub_error(self):
+        with self.assertRaises(ZeroDivisionError) as context:
+            (12 / 0)
+        if context.exception:
+            print("Assertion error caught:", context.exception)
+
 if __name__ == '__main__':
     unittest.main()
