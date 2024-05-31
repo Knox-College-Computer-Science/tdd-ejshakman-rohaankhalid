@@ -1,5 +1,5 @@
 import pytest
-from src.calculator import Calculator
+from src.calc import Calculator
 
 def setup_function():
     global calc
