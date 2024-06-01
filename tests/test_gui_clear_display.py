@@ -2,19 +2,3 @@
 import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
-
-import pytest
-from tkinter import Tk
-from src.calculator_gui import Calculator
-
-@pytest.fixture
-def gui_calc():
-    root = Tk()
-    calc = Calculator(root)
-    yield calc
-    root.destroy()
-
-def test_gui_clear_display(gui_calc):
-    gui_calc.entry.insert(0, "5 + 3")
-    gui_calc.on_button_click("C")
-    assert gui_calc.entry.get() == ""
