@@ -1,7 +1,7 @@
 # tests/test_gui_clear_display.py
 import pytest
 from tkinter import Tk
-from src.calculatorGui import Calculator
+from src.calculator_gui import Calculator
 
 @pytest.fixture
 def gui_calc():
