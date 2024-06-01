@@ -10,11 +10,13 @@ class Calculator:
         self.entry = tk.Entry(root, width=16, font=('Arial', 24), borderwidth=2, relief="solid")
         self.entry.grid(row=0, column=0, columnspan=5)
 
+        # C is for clear everything in the entry field
         buttons = [
             '7', '8', '9', '/', 'sin',
             '4', '5', '6', '*', 'cos',
             '1', '2', '3', '-', 'tan',
-            '0', '.', '=', '+', 'log'
+            '0', '.', '=', '+', 'log',
+            'C'
         ]
 
         row_val = 1
@@ -42,11 +44,11 @@ class Calculator:
             try:
                 expression = self.entry.get()
                 if char == 'sin':
-                    result = math.sin(math.radians(float(expression)))
+                    result = math.degrees(math.sin(math.radians(float(expression))))
                 elif char == 'cos':
-                    result = math.cos(math.radians(float(expression)))
+                    result = math.degrees(math.cos(math.radians(float(expression))))
                 elif char == 'tan':
-                    result = math.tan(math.radians(float(expression)))
+                    result = math.degrees(math.tan(math.radians(float(expression))))
                 elif char == 'log':
                     result = math.log10(float(expression))
                 self.entry.delete(0, tk.END)
@@ -54,6 +56,8 @@ class Calculator:
             except Exception as e:
                 messagebox.showerror("Error", "Invalid Input")
                 self.entry.delete(0, tk.END)
+        elif char == 'C':
+            self.entry.delete(0, tk.END)
         else:
             current_text = self.entry.get()
             self.entry.delete(0, tk.END)
