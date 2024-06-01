@@ -23,17 +23,19 @@ jobs:
       with:
         python-version: "3.10"
 
-    - name: Set PYTHONPATH
-      run: echo "PYTHONPATH=$(pwd)/src" >> $GITHUB_ENV
+    # - name: Set PYTHONPATH
+    #   run: echo "PYTHONPATH=$(pwd)/src" >> $GITHUB_ENV
 
-    - name: Print PYTHONPATH
-      run: echo $PYTHONPATH
+    # - name: Print PYTHONPATH
+    #   run: echo $PYTHONPATH
 
-    - name: List directory structure
-      run: ls -R
+    # - name: List directory structure
+    #   run: ls -R
 
     - name: Install dependencies
       run: |
+        sudo apt-get update
+        sudo apt-get install -y xvfb
         python -m pip install --upgrade pip
         pip install flake8 pytest pytest-cov
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
@@ -47,4 +49,4 @@ jobs:
 
     - name: Test with pytest and generate coverage report
       run: |
-        pytest --cov=src --cov-report=xml --cov-report=term
+        xvfb-run pytest --cov=src --cov-report=xml --cov-report=term
