@@ -20,3 +20,12 @@ def test_tangent(calc):
 def test_log(calc):
     result = calc.log10(100)
     assert result == 2
+
+
+def test_log_error(calc):
+    with pytest.raises(ValueError, match="logarithm for non-positive numbers is undefined"):
+        calc.log10(0)
+
+    with pytest.raises(ValueError, match="logarithm for non-positive numbers is undefined"):
+        calc.log10(-10)
+    
