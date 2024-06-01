@@ -28,8 +28,3 @@ class Calculator:
         if x <= 0:
             raise ValueError("logarithm for non-positive numbers is undefined")
         return round(math.log10(x), 6)
-    
-    def ln(self, x):
-        if x <= 0:
-            raise ValueError("natural logarithm for non-positive numbers is undefined")
-        return round(math.log(x), 6)
