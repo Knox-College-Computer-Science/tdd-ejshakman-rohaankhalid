@@ -1,6 +1,9 @@
 import math
 
 class Calculator:
+    def __init__(self):
+        self.display = ""
+
     def add(self, a, b):
         return a + b
 
@@ -28,3 +31,7 @@ class Calculator:
         if x <= 0:
             raise ValueError("logarithm for non-positive numbers is undefined")
         return round(math.log10(x), 6)
+    
+    def clear(self):
+        self.display = ""
+        return self.display
