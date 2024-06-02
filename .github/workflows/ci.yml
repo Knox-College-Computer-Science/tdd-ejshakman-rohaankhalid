@@ -49,3 +49,13 @@ jobs:
     - name: Test with pytest and generate coverage report
       run: |
         xvfb-run pytest --cov=src --cov-report=xml --cov-report=term
+        
+    # Store coverage reports as artifacts
+    - name: Upload coverage report
+      uses: actions/upload-artifact@v2
+      with:
+          name: coverage-report
+          path: |
+            .coverage
+            htmlcov/
+      
