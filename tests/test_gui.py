@@ -14,6 +14,10 @@ def gui():
     yield calc
     root.destroy()
 
+def test_file_runs(gui):
+    print("Running first GUI test")
+    assert gui.get_display_text() == ""
+
 # Display screen initialization
 def test_display_initialization(gui):
     assert gui.get_display_text() == ""
