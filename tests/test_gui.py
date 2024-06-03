@@ -1,22 +1,13 @@
-# tests/test_gui.py
-import sys
-import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
-
 import pytest
 from tkinter import Tk
-from src.gui import Calculator
+from src.gui import CalculatorGUI
 
 @pytest.fixture
 def gui():
     root = Tk()
-    calc = Calculator(root)
+    calc = CalculatorGUI(root)
     yield calc
     root.destroy()
-
-def test_file_runs(gui):
-    print("Running first GUI test")
-    assert gui.get_display_text() == ""
 
 # Display screen initialization
 def test_display_initialization(gui):
