@@ -21,7 +21,7 @@
 
 4. **Run the Application**:
     ```sh
-    python src/calculator_gui.py
+    python src/gui.py
     ```
 
 5. **Run Tests**:
