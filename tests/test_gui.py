@@ -3,12 +3,10 @@ from tkinter import Tk
 from src.gui import CalculatorGUI
 from src.logic import CalculatorLogic
 
-@pytest.fixture
+@pytest.fixture(scope="module")
 def gui():
     root = Tk()
-    calc = CalculatorGUI(root)
-    yield calc
-    root.destroy()
+    return CalculatorGUI(root)
 
 # Display screen initialization
 def test_display_initialization(gui):
