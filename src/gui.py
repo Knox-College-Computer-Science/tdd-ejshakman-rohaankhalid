@@ -1,5 +1,5 @@
 import tkinter as tk
-from src.logic import CalculatorLogic
+from logic import CalculatorLogic
 
 class CalculatorGUI:
     def __init__(self, root):
