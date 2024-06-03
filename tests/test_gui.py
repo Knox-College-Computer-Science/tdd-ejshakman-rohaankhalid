@@ -1,7 +1,6 @@
 import pytest
 from tkinter import Tk
 from src.gui import CalculatorGUI
-from src.logic import CalculatorLogic
 
 @pytest.fixture
 def gui():
