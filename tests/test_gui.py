@@ -63,3 +63,4 @@ def test_clear_button(gui):
     gui.press_button('CE')
 
     assert gui.get_display_text() == "9"
+    
