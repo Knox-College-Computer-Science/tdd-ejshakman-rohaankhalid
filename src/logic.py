@@ -1,6 +1,16 @@
 import math
+import math
 
-class Calculator:
+class CalculatorLogic:
+    def __init__(self):
+        pass
+
+    def evaluate(self, expression):
+        try:
+            return eval(expression)  # You might want to add some more robust error handling here
+        except Exception as e:
+            return "Error: " + str(e)
+
     def add(self, a, b):
         return a + b
 
